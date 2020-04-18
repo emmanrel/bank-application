@@ -18,11 +18,11 @@ public class FacilitateurDeTransaction {
     }
 
     public int ajouter(){
-        return transactions.ajout(0);
+        return transactions.ajout();
     }
 
     public int retirer(){
-        return transactions.retrai(clavier.nextInt());
+        return transactions.retrai();
     }
     public Transfer envoyer(){
       return transactions.envoi();

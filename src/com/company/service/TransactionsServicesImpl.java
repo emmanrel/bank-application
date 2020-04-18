@@ -17,24 +17,24 @@ public class TransactionsServicesImpl implements TransactionsServices {
     }
 
     @Override
-    public int ajout(int montant) {
-
-        CompteBancaire banq = new CompteBancaire();
+    public int ajout() {
+        CompteBancaire compte = new CompteBancaire();
         System.out.println("entrez la somme a ajouter");
        int montant1 =clavier.nextInt();
-        banq.setAmount(100000);
-        int rest = (int)(montant + montant1  + banq.getAmount());
-        System.out.println("dans votre compte il ya mintenant:"+rest);
+       compte.setAmount(100000);
+       int rest = (compte.getAmount()+montant1);
+        System.out.println("dans votre compte il ya maintenant"+rest);
         return rest;
     }
 
 
 
     @Override
-    public int retrai(int montant2) {
+    public int retrai() {
 
         CompteBancaire banq = new CompteBancaire();
-
+        System.out.println("entrez la somme a ajouter");
+        int montant2 =clavier.nextInt();
         banq.setAmount(100000);
         int rest2 = (int)(montant2  - banq.getAmount());
         System.out.println("dans votre compte il ya mintenant:"+rest2);

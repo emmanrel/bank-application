@@ -5,8 +5,8 @@ import com.company.model.Transfer;
 
 public interface TransactionsServices {
 
-     int ajout(int criteria);
-     int retrai(int criteria);
+     int ajout();
+     int retrai();
      Transfer envoi();
      Transfer reception();
 

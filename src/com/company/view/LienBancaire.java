@@ -1,6 +1,8 @@
 package com.company.view;
 
 import com.company.controller.FacilitateurDeTransaction;
+import com.company.model.Customer;
+import com.company.service.BankServiceImpl;
 import com.company.service.TransactionsServices;
 import com.company.service.TransactionsServicesImpl;
 
@@ -11,6 +13,7 @@ public class LienBancaire {
 
 
     Scanner clavier = new Scanner(System.in);
+    private String criteria;
 
     public LienBancaire() {
     }
@@ -31,38 +34,52 @@ public class LienBancaire {
 
 
           do{
-              System.out.println("menue Transaction\n" +
-                      "1-Opperations\n" +
-                      "2-Transfer");
+              BankServiceImpl bank = new BankServiceImpl();
+                Customer customer = new Customer();
 
-              System.out.println("entrez un chifre entre 1 et 4 pour faire le choix et appuyez 5 pour sortir");
+
+              System.out.println("menue Transaction\n" +
+                      "1-Creer un compte\n" +
+                      "2-Recherche du compte\n"+
+                      "3-opperations bancires\n"+
+                      "4-Transactions bancaires");
+
+              System.out.println("entrez un chifre entre 1 et 6 pour faire le choix et appuyez 7 pour sortir");
               numeroChoisi = clavier.nextInt();
               switch (numeroChoisi){
                   case 1:
 
-                      faciliteur.ajouter();
+                      bank.createAccount();
                       break;
                   case 2:
-                      System.out.println("entrez la somme a retrancher");
-                      faciliteur.retirer();
+
+                       bank.searchAcount(criteria);
+
                       break;
                   case 3:
 
-                      faciliteur.envoyer();
+                      faciliteur.ajouter();
                       break;
                   case 4:
 
-                      faciliteur.recevoir();
+                      faciliteur.retirer();
                       break;
                   case 5:
+
+                      faciliteur.envoyer();
+                      break;
+                  case 6:
+                      faciliteur.recevoir();
+
+                      break; case 7:
 
                       System.exit(0);
                       break;
                   default:
-                      System.out.println(" erreur entrez un chiffre de 1 a 5");
+                      System.out.println(" erreur entrez un chiffre de 1 a 8");
 
               }
-          }while (numeroChoisi>0 && numeroChoisi<=5);
+          }while (numeroChoisi>0 && numeroChoisi<=7);
 
 
 
